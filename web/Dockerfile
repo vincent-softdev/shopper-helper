@@ -1,18 +1,27 @@
-# Stage 1 - the build process
-FROM node:14 as build-deps
+# Choose a base image that includes Node.js and Yarn
+FROM node:14
 
+# Set the working directory in the docker image
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN npm install
+# Copy package.json and yarn.lock into the root directory of the app
+COPY package.json ./
+COPY yarn.lock ./
 
-COPY . ./
-RUN npm run build
+# Install app dependencies
+RUN yarn install
 
-# Stage 2 - the production environment
-FROM nginx:alpine
+# Copy the rest of your app's source code
+COPY . .
 
-COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
+# If you use Create React App, the build command is `yarn build`
+RUN yarn build
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Install serve to serve your app
+RUN yarn global add serve
+
+# Your app listens on port 5000, so you'll use that as a common port
+EXPOSE 5000
+
+# Command to run the app
+CMD [ "serve", "-s", "build" ]
