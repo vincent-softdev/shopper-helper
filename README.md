@@ -4,13 +4,14 @@
 
 Mobile application
 
-dev owner: Daniil
+dev owner: Ly
 
 ## Server
 
 ML developer
 
-dev owner: Kosi
+dev owner: Kosi, Daniil
+contributor: Ly
 
 ## Web
 
