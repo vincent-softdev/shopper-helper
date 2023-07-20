@@ -14,6 +14,10 @@ Stands for: Domain-Driven Design
 
 Domain: in our project, domain is a page
 
+### Style components
+
+1. styled-component: https://styled-components.com/docs/advanced#theming
+
 ## Set up
 
 ### Run in VM for product test
