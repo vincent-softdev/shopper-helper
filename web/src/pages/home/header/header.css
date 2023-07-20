@@ -1,0 +1,7 @@
+.header-container{
+    background-color: gray;
+    height: 100px;
+    color: white;
+    align-items: center;
+    display: flex;
+}
