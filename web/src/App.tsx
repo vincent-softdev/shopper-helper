@@ -1,15 +1,18 @@
 import './App.css';
-import Header from './common/components/header'
-import Footer from './common/components/footer'
-import HomePage from './pages/home/home_page';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Home from './pages/home/home_page'
+import NavBar from './common/components/navbar/NavBar';
+import ImageExtraction from './pages/services/image_extraction/ImageExtraction';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <HomePage />
-      <Footer />
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/services' element={<ImageExtraction />}/>
+      </Routes>
+    </Router>
   );
 }
 
