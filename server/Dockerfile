@@ -9,9 +9,10 @@ ADD . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-# Run app.py when the container launches
-CMD ["python", "app.py"]
+# Run main.py when the container launches
+CMD ["python", "main.py"]

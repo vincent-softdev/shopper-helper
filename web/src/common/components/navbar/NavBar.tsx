@@ -7,7 +7,7 @@ const NavBar = () => {
     return (
         <nav className='navbar-container'>
             <div className='nav-left'>
-                <NavLink exact to="/">
+                <NavLink to="/">
                     Home
                 </NavLink>
                 <NavLink to="/about">
