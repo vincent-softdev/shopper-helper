@@ -3,4 +3,11 @@ const API_CONFIGS = {
     API_URL_IMAGE_UPLOAD: process.env.REACT_APP_API_IMAGE_UPLOAD
 }
 
-export default API_CONFIGS;
+const CONGIS = {
+    MODE: process.env.REACT_APP_API_MODE
+}
+
+export const APP_CONFIG = {
+    API_CONFIGS,
+    CONGIS
+};

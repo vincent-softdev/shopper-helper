@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {ImageExtractionServices} from '../../../services/ImageExtractionServices'
 import './image_extraction.css';
-import { AxiosProgressEvent } from 'axios';
+import Loading from '../../../common/components/loading/loading'
 
 const ImageExtraction = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [uploadProgress, setUploadProgress] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const [imagePath, setImagePath] = useState('');
 
@@ -21,17 +21,27 @@ const ImageExtraction = () => {
 
   const handleUploadClick = async () => {
     if (selectedFile) {
-        console.log('debug: '+ imagePath);
-        await ImageExtractionServices.upload(selectedFile);
+      setIsLoading(true);
+        console.log('debug: imagePath '+ imagePath);
+        const response = await ImageExtractionServices.upload(selectedFile);
+        console.log(`Status code: ${response.status}`);
+        console.log(`Response data: ${JSON.stringify(response.data, null, 2)}`);
       }
+      setIsLoading(false);
   };
 
   return (
     <div className="image-extraction">
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUploadClick}>Upload</button>
-      {uploadProgress && <progress value={uploadProgress} max="100" />}
-      {fileName && <p>Selected file: {fileName}</p>}
+      {
+        !isLoading && (
+          <>
+            <input type="file" onChange={handleFileChange} />
+            <button onClick={handleUploadClick}>Upload</button>
+            {fileName && <p>Selected file: {fileName}</p>}
+          </>
+        )
+      }
+      {isLoading && <Loading content='Extracting product content....'/>}
     </div>
   );
 }
