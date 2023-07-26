@@ -15,4 +15,13 @@ run the docker container by the image
 docker run -p 80:80 -d shopper_helper_server
 ```
 
+Note: It seems like the docker has some trouble while trying to install easyocr -> always asking for downloading whenever Docker starts. 
+-> still not run the system, just download then it stop.
+
+## Run locally
+
+```
+uvicorn main:app --reload
+```
+
 ## Output
