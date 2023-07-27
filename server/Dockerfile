@@ -15,4 +15,4 @@ RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 EXPOSE 80
 
 # Run main.py when the container launches
-CMD ["python", "main.py"]
+CMD python -m uvicorn main:app --host 0.0.0.0 --port 80
