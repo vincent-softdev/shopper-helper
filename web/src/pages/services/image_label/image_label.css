@@ -1,0 +1,15 @@
+.image-label__container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-label__submit-btn{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: rgb(133, 70, 234);
+    color: white;
+    cursor: pointer;
+}

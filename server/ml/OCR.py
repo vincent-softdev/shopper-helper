@@ -40,7 +40,7 @@ def draw_bbox (IMAGE_PATH):
     print(text)
     texts.append(text)
 
-  return text
+  return texts
 
 # if '__name__'=='__main__':
 #     x = input("Input Image Path")
