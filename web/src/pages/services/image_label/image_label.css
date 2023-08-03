@@ -13,3 +13,7 @@
     color: white;
     cursor: pointer;
 }
+
+.image-label__display-image{
+    max-width: 400px;
+}

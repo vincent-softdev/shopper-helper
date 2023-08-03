@@ -1,5 +1,6 @@
 import DisplayImage from "../../../common/components/displaying_image/displaying_image"
 import './image_label.css'
+import Button from '@mui/material/Button';
 
 type ImageLabelProps = {
     imageUrl: string,
@@ -8,7 +9,9 @@ type ImageLabelProps = {
 
 const ImageLabel = (props: ImageLabelProps) => {
     return <div className="image-label__container">
-        <DisplayImage url={props.imageUrl}/>
+        <div className="image-label__display-image">
+            <DisplayImage url={props.imageUrl}/>
+        </div>
         <section>
             <h1>Label detail</h1>
             {
@@ -18,7 +21,7 @@ const ImageLabel = (props: ImageLabelProps) => {
                     </div>
                 })
             }
-            <button className="image-label__submit-btn">Submit</button>
+            <Button variant="outlined">Submit</Button>
         </section>
     </div>
 }

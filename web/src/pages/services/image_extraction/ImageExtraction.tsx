@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 import {ImageExtractionServices} from '../../../services/ImageExtractionServices'
 import './image_extraction.css';
 import Loading from '../../../common/components/loading/loading'
-import DisplayImage from '../../../common/components/displaying_image/displaying_image';
+import { DropzoneArea } from 'material-ui-dropzone';
+import Button from '@mui/material/Button';
 
 type ImageExtractionProps = {
   setState: (state: number, imageUrl: string, texts: string[]) => void
@@ -14,12 +15,13 @@ const ImageExtraction = (props: ImageExtractionProps) => {
   const [fileName, setFileName] = useState<string | null>(null);
   const [imagePath, setImagePath] = useState('');
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.length) {
-      setSelectedFile(e.target.files[0]);
-      setFileName(e.target.files[0].name);
+  const handleFileChange = (files: File[]) => {
+    console.log(files)
+    if (files.length) {
+      setSelectedFile(files[0]);
+      setFileName(files[0].name);
 
-      const imageURL = URL.createObjectURL(e.target.files[0]);
+      const imageURL = URL.createObjectURL(files[0]);
       setImagePath(imageURL);
     }
   };
@@ -43,13 +45,16 @@ const ImageExtraction = (props: ImageExtractionProps) => {
     <div className="image-extraction">
       {
         !isLoading && (
-          <>
-            {imagePath && <DisplayImage url={imagePath}/>}
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUploadClick}>Upload</button>
+          <div className='image-extraction__card'>
+            <DropzoneArea
+              onChange={(files) => handleFileChange(files)}
+            />
+            {/* <input type="file" onChange={handleFileChange} /> */}
+            <div>
+              <Button variant="outlined" className='image-extraction__upload--btn' onClick={handleUploadClick}>Upload</Button>
+            </div>
             {fileName && <p>Selected file: {fileName}</p>}
-            
-          </>
+          </div>
         )
       }
       {isLoading && <Loading content='Extracting product content....'/>}

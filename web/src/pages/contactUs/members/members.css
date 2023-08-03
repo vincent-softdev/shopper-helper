@@ -1,0 +1,9 @@
+.members-detail__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.member-detail{
+    margin-bottom: 50px;
+}
