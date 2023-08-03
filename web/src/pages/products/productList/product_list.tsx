@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { IProduct, IProductService } from '../../../interfaces/iproduct';
 import ProductCard from '../productCard/product_card';
+import './product_list.css'
 import PageController from '../../../common/components/pageController/page_controller';
 
 interface Props {
@@ -32,17 +33,21 @@ const ProductList: React.FC<Props> = ({ productService }) => {
   }
 
   return (
-    <div>
+    <div className='product-list--container'>
       <div className="product-list">
         {displayProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <div key={product.id} className='product-card--container'>
+            <ProductCard product={product}/>
+          </div>
         ))}
       </div>
-      <PageController 
-        currentPage={page}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      <div className='product-list__page-controller'>
+        <PageController 
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
     </div>
   );
 };

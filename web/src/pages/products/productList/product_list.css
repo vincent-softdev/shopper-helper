@@ -1,0 +1,17 @@
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust the 200px to set your desired minimum width */
+    grid-auto-rows: minmax(100px, auto); /* Adjust the 100px to set your desired minimum height */
+    grid-gap: 64px; /* Adjust as needed for spacing between items */
+}
+
+.product-list--container{
+    width: 80%;
+}
+
+.product-list__page-controller{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: right;
+}

@@ -13,11 +13,11 @@ const NavBar = () => {
                 <NavLink to="/products">
                     Products
                 </NavLink>
-                <NavLink to="/contact">
-                    Contact
-                </NavLink>
                 <NavLink to="/services">
                     Services
+                </NavLink>
+                <NavLink to="/contact">
+                    Contact
                 </NavLink>
             </div>
             <div className='nav-middle'>
