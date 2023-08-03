@@ -1,0 +1,13 @@
+.product-page__container{
+
+}
+
+.product-page__header{
+
+}
+
+.product-page__product-list{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
