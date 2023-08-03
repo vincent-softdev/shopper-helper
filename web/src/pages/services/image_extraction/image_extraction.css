@@ -5,3 +5,13 @@
     align-items: center;
     height: 100vh;
   }
+
+  .image-extraction__card{
+    width: 50%;
+  }
+
+  .image-extraction__card .image-extraction__upload--btn{
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+  }

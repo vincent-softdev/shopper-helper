@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IProduct, IProductService } from '../../../interfaces/iproduct';
-import ProductCard from '../productCard/product_card';
+import ProductCard from '../../../common/components/productCard/product_card';
 import './product_list.css'
 import PageController from '../../../common/components/pageController/page_controller';
 
@@ -37,7 +37,7 @@ const ProductList: React.FC<Props> = ({ productService }) => {
       <div className="product-list">
         {displayProducts.map(product => (
           <div key={product.id} className='product-card--container'>
-            <ProductCard product={product}/>
+            <ProductCard type='product' product={product}/>
           </div>
         ))}
       </div>

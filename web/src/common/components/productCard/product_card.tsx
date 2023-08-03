@@ -43,8 +43,9 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 interface Props {
-    product: IProduct;
-  }
+  type: string;
+  product: IProduct;
+}
 
 export default function ProductCard(props: Props) {
   const [expanded, setExpanded] = React.useState(false);
@@ -56,9 +57,9 @@ export default function ProductCard(props: Props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
-        avatar={
+        avatar={props.type === 'member' &&
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+            {props.product.title[0]}
           </Avatar>
         }
         action={
@@ -66,8 +67,8 @@ export default function ProductCard(props: Props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={props.product.title.split('-')[0]}
+        subheader={props.product.title.split('-')[1]}
       />
       <CardMedia
         component="img"
@@ -77,9 +78,7 @@ export default function ProductCard(props: Props) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {props.product.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
