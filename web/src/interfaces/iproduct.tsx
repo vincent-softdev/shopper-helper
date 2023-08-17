@@ -1,8 +1,8 @@
 export interface IProduct {
     id: number;
-    title: string;
+    name: string;
+    price: string;
     image: string;
-    description: string;
   }
   
   export interface IProductService {

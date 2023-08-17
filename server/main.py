@@ -4,6 +4,7 @@ import numpy as np
 from io import BytesIO
 import os
 import ml.OCR as ocr
+import methods.get_data as getData
 
 app = FastAPI()
 
@@ -19,6 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get('/image')
+async def get_images():
+    return getData.get_images(file="./data/coles_sample_data.csv",selected_columns=['Name', 'Price', 'Image'])
 
 @app.post('/image/upload')
 async def blur_image(image: UploadFile = File(...)):

@@ -1,3 +1,6 @@
+import { Pagination } from '@mui/material';
+import './page_controller.css'
+import React from 'react';
 // components/Pagination.tsx
 interface Props {
     currentPage: number;
@@ -7,22 +10,14 @@ interface Props {
   
   const PageController: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) => {
     const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+    const [page, setPage] = React.useState(1);
+    const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+      setPage(value);
+      onPageChange(value);
+    };
   
-    return (
-      <div className="pagination">
-        <button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1}>
-          Previous
-        </button>
-        {pages.map(page => (
-          <button key={page} onClick={() => onPageChange(page)} className={currentPage === page ? 'active' : ''}>
-            {page}
-          </button>
-        ))}
-        <button onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
-    );
+    return <Pagination count={pages.length} page={page} onChange={handleChange} />;
   };
   
   export default PageController;

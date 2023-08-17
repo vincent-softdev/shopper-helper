@@ -13,6 +13,10 @@
     width: 100%;
 }
 
+.nav-left > a {
+    font-size: 12px !important;
+}
+
 .navbar-container > .nav-middle{
     height: 100%;
     flex-grow: 1;
