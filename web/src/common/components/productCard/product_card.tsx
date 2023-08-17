@@ -26,6 +26,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IProduct } from "../../../interfaces/iproduct";
+import './product_card.css'
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -45,6 +46,8 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 interface Props {
   type: string;
   product: IProduct;
+  detail: JSX.Element;
+  extraDetail: JSX.Element;
 }
 
 export default function ProductCard(props: Props) {
@@ -57,18 +60,19 @@ export default function ProductCard(props: Props) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
+        className='product-title'
         avatar={props.type === 'member' &&
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {props.product.title[0]}
+            {props.product.name[0]}
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={props.product.title.split('-')[0]}
-        subheader={props.product.title.split('-')[1]}
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
+        title={props.product.name.split('-')[0]}
+        subheader={props.product.name.split('-')[1]}
       />
       <CardMedia
         component="img"
@@ -76,18 +80,21 @@ export default function ProductCard(props: Props) {
         image={props.product.image}
         alt="Paella dish"
       />
-      <CardContent>
+      {/* <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.product.description}
+          {props.product.price}
         </Typography>
+      </CardContent> */}
+      <CardContent>
+        {props.detail}
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        {/* <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -98,7 +105,10 @@ export default function ProductCard(props: Props) {
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
+        {
+          props.extraDetail
+        }
+        {/* <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
@@ -124,7 +134,7 @@ export default function ProductCard(props: Props) {
           <Typography>
             Set aside off of the heat to let rest for 10 minutes, and then serve.
           </Typography>
-        </CardContent>
+        </CardContent> */}
       </Collapse>
     </Card>
   );

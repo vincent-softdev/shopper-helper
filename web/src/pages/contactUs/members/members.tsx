@@ -10,7 +10,7 @@ const Members = () => {
                 {
                     membersDetail.map((p) => (
                         <div key={p.id} className='member-detail'>
-                            <ProductCard type='member' product={p}/>
+                            <ProductCard type='member' product={p} detail={<></>} extraDetail={<></>}/>
                         </div>
                     ))
                 }

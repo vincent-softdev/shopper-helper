@@ -1,0 +1,9 @@
+.product-title{
+    text-align: center;
+    
+}
+
+.product-title span{
+    font-weight: bold !important;
+    font-size: 20px !important;
+}

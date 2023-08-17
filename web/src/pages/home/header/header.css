@@ -1,7 +1,15 @@
 .header-container{
-    background-color: gray;
-    height: 100px;
-    color: white;
-    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    justify-content: center;
     display: flex;
+}
+
+.header-container section h2, .header-container section p, .header-container section div{
+    text-align: center;
+}
+
+.header-container section img{
+    margin-top: 50px;
+    max-height: 300px;
 }

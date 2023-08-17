@@ -3,21 +3,21 @@ import {IProduct} from '../interfaces/iproduct'
 const membersDetail: IProduct[] = [
     {
         id: 1,
-        image: '/images/sample_product.jpg',
-        title: 'The Vinh Ly - Full Stack Engineer',
-        description: 'Hi guys...'
+        image: 'https://productimages.coles.com.au/productimages/8/8150288.jpg?w=200',
+        name: 'The Vinh Ly - Full Stack Engineer',
+        price: 'Hi guys...'
     },
     {
         id: 2,
         image: '/images/sample_product.jpg',
-        title: 'Kosi - Machine Learning Engineer',
-        description: 'Hi guys...'
+        name: 'Kosi - Machine Learning Engineer',
+        price: 'Hi guys...'
     },
     {
         id: 3,
         image: '/images/sample_product.jpg',
-        title: 'Daniil - Machine Learning Engineer',
-        description: 'Hi guys...'
+        name: 'Daniil - Machine Learning Engineer',
+        price: 'Hi guys...'
     }
 ]
 

@@ -1,0 +1,10 @@
+section > h2{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+section > h2, 
+section > p{
+    display: flex;
+    justify-content: center;
+}
