@@ -3,3 +3,28 @@
     display: flex;
     justify-content: center;
 }
+
+.container-body{
+    width: 80% !important;
+    margin-bottom: 100px;
+}
+
+.service-items{
+    display: flex;
+    justify-content: center;
+}
+
+.service-name{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.service-items img{
+    height: 200px;
+}
+
+.items-container{
+    cursor: pointer;
+}
