@@ -12,7 +12,7 @@ docker build -t shopper_helper_server .
 run the docker container by the image
 -> this running type will allow read only. What ever you change won't effect the one currently running
 ```
-docker run -p 80:80 -d shopper_helper_server
+docker run -p 8000:80 -d shopper_helper_server
 ```
 
 Note: It seems like the docker has some trouble while trying to install easyocr -> always asking for downloading whenever Docker starts. 
